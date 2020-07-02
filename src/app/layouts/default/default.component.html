@@ -1,0 +1,14 @@
+<!-- toggleSideBarForMe (header.component.ts) event emitter will trigger sideBarToggler function ($event is the parameter from toggleSideBarForMe.emit())-->
+<app-header (toggleSideBarForMe)="sideBarToggler($event)"></app-header>
+<mat-drawer-container>  
+    <!-- [] is used for property binding -->
+    <!-- value of sideBarOpen variable will be assigned to opened property of mat-drawer-->
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <!-- router-outlet is used for displaying different components dynamically (see app-routing.module.ts)-->
+        <router-outlet></router-outlet>
+    </mat-drawer-content>  
+</mat-drawer-container>
+<app-footer></app-footer>
